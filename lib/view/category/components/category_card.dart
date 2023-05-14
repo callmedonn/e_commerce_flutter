@@ -30,7 +30,7 @@ class _CategoryCardState extends State<CategoryCard> {
         child: CachedNetworkImage(
           imageUrl: baseUrl + widget.category.image,
           imageBuilder: (context, imageProvider) => Material(
-            elevation: 8,
+            elevation: 2,
             shadowColor: Colors.grey.shade300,
             borderRadius: BorderRadius.circular(12),
             child: AnimatedContainer(
@@ -90,7 +90,7 @@ class _CategoryCardState extends State<CategoryCard> {
             ),
           ),
           placeholder: (context, url) => Material(
-            elevation: 8,
+            elevation: 2,
             shadowColor: Colors.grey.shade300,
             borderRadius: BorderRadius.circular(12),
             child: Shimmer.fromColors(
@@ -133,7 +133,7 @@ class _CategoryCardState extends State<CategoryCard> {
                 highlightColor: Colors.white),
           ),
           errorWidget: (context, url, error) => Material(
-            elevation: 8,
+            elevation: 2,
             shadowColor: Colors.grey.shade300,
             child: Container(
               width: double.infinity,

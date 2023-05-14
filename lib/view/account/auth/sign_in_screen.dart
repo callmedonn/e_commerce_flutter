@@ -41,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const Spacer(),
                 const Text("Welcome,",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 69, 69, 69),
                         fontSize: 32,
                         fontWeight: FontWeight.bold)),
                 const Text(

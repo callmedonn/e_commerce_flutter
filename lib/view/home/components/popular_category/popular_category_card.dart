@@ -16,7 +16,7 @@ class PopularCategoryCard extends StatelessWidget {
       child: CachedNetworkImage(
         imageUrl: baseUrl + category.image,
         imageBuilder: (context, imageProvider) => Material(
-          elevation: 8,
+          elevation: 2,
           shadowColor: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(10),
           child: Container(
@@ -40,7 +40,7 @@ class PopularCategoryCard extends StatelessWidget {
           ),
         ),
         placeholder: (context, url) => Material(
-          elevation: 8,
+          elevation: 2,
           shadowColor: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(10),
           child: Shimmer.fromColors(
@@ -56,7 +56,7 @@ class PopularCategoryCard extends StatelessWidget {
           ),
         ),
         errorWidget: (context, url, error) => Material(
-          elevation: 8,
+          elevation: 2,
           shadowColor: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(10),
           child: Container(

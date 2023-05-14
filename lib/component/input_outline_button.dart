@@ -11,14 +11,14 @@ class InputOutlineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        foregroundColor: Theme.of(context).primaryColor,
+        foregroundColor: Color.fromARGB(255, 255, 114, 104),
         backgroundColor: Colors.white,
         minimumSize: const Size(double.maxFinite, 45),
         padding: const EdgeInsets.symmetric(horizontal: 18.0),
         shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(Radius.circular(6.0)),
             side: BorderSide(
-              color: Theme.of(context).primaryColor,
+              color: Color.fromARGB(255, 255, 114, 104),
             )),
       ),
       onPressed: () {

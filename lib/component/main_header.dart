@@ -1,7 +1,13 @@
 import 'package:badges/src/badge.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_app/controller/cart_controller.dart';
 import 'package:my_app/controller/controllers.dart';
+import 'package:my_app/service/remote_service/remote_cart.dart';
+import 'package:my_app/view/cart/cart.dart';
+// import 'package:my_app/view/cart/cart.dart';
+// import 'package:my_app/view/product/product_screen.dart';
+// import 'package:my_app/view/account/auth/sign_in_screen.dart';
 
 class MainHeader extends StatelessWidget {
   const MainHeader({Key? key}) : super(key: key);
@@ -22,9 +28,9 @@ class MainHeader extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(24)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
-                      color: Colors.grey.withOpacity(0.6),
+                      color: Colors.grey.withOpacity(0.3),
                       offset: const Offset(0, 0),
-                      blurRadius: 8)
+                      blurRadius: 5)
                 ]),
             child: Obx(() => TextField(
                   autofocus: false,
@@ -69,7 +75,7 @@ class MainHeader extends StatelessWidget {
                 color: Colors.white,
                 shape: BoxShape.circle,
                 boxShadow: <BoxShadow>[
-                  BoxShadow(color: Colors.grey.withOpacity(0.6), blurRadius: 8)
+                  BoxShadow(color: Colors.grey.withOpacity(0.3), blurRadius: 8)
                 ]),
             padding: const EdgeInsets.all(12),
             child: const Icon(
@@ -78,29 +84,40 @@ class MainHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          badges.Badge(
-            badgeContent: const Text(
-              "1",
-              style: TextStyle(color: Colors.white),
-            ),
-            badgeColor: Theme.of(context).primaryColor,
-            child: Container(
-              height: 46,
-              width: 46,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(0.6), blurRadius: 8)
-                  ]),
-              padding: const EdgeInsets.all(12),
-              child: const Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.grey,
-              ),
-            ),
-          ),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    CartController().onInit();
+                    // RemoteCartService().getByName(keyword: "keyword");
+                    return const CartScreen();
+                  }),
+                );
+              },
+              child: badges.Badge(
+                badgeContent: const Text(
+                  "0",
+                  style: TextStyle(color: Colors.white),
+                ),
+                badgeColor: Theme.of(context).primaryColor,
+                child: Container(
+                  height: 46,
+                  width: 46,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.3), blurRadius: 8)
+                      ]),
+                  padding: const EdgeInsets.all(12),
+                  child: const Icon(
+                    Icons.shopping_cart_outlined,
+                    color: Colors.grey,
+                  ),
+                ),
+              )),
           const SizedBox(width: 5),
         ],
       ),

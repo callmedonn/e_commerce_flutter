@@ -282,10 +282,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      sha256: "37cdafb9c3a0790cc8f59d72bb8ff2e65cf550e31a655a596d81c5ac78cf893c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "1.0.0"
   flutter_snake_navigationbar:
     dependency: "direct main"
     description:
@@ -423,10 +423,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "6b0206b0bf4f04961fc5438198ccb3a885685cd67d4d4a32cc20ad7f8adbe015"
+      sha256: a2c3d198cb5ea2e179926622d433331d8b58374ab8f29cdda6e863bd62fd369c
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:

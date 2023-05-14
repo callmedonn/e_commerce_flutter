@@ -20,8 +20,8 @@ class AppTheme {
       appBarTheme: AppBarTheme(backgroundColor: lightPrimaryColor),
       colorScheme: ColorScheme.light(secondary: lightSecondaryColor),
       textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(primary: lightBackgroundColor))
-  );
+          style: TextButton.styleFrom(primary: lightBackgroundColor)),
+      fontFamily: "Poppins");
 
   static Brightness get currentSystemBrightness =>
       SchedulerBinding.instance!.window.platformBrightness;

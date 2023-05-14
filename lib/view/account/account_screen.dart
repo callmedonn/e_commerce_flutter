@@ -33,7 +33,9 @@ class AccountScreen extends StatelessWidget {
                       authController.user.value?.fullName ??
                           "Sign in your account",
                       style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromARGB(255, 69, 69, 69)),
                     )
                   ],
                 )
@@ -88,7 +90,7 @@ class AccountScreen extends StatelessWidget {
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.4),
                   spreadRadius: 0.1,
-                  blurRadius: 7,
+                  blurRadius: 3,
                 )
               ]),
           child: Row(
@@ -96,8 +98,10 @@ class AccountScreen extends StatelessWidget {
             children: [
               Text(
                 title,
-                style:
-                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 69, 69, 69)),
               ),
               const Icon(Icons.keyboard_arrow_right_outlined)
             ],

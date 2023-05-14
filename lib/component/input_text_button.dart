@@ -11,7 +11,7 @@ class InputTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color.fromARGB(255, 255, 114, 104),
         minimumSize: const Size(double.maxFinite, 50),
         padding: const EdgeInsets.symmetric(horizontal: 18.0),
         shape: const RoundedRectangleBorder(

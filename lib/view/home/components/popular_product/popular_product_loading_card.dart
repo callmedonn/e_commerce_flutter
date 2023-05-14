@@ -10,7 +10,7 @@ class PopularProductLoadingCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
       child: Material(
-        elevation: 8,
+        elevation: 2,
         shadowColor: Colors.grey.shade300,
         borderRadius: BorderRadius.circular(10),
         child: Shimmer.fromColors(
@@ -21,13 +21,12 @@ class PopularProductLoadingCard extends StatelessWidget {
             width: 120,
             child: Column(
               children: [
-                AspectRatio(aspectRatio: 0.9,
+                AspectRatio(
+                  aspectRatio: 0.9,
                   child: Container(
                     color: Colors.grey,
                     padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 25
-                    ),
+                    margin: const EdgeInsets.symmetric(horizontal: 25),
                   ),
                 ),
                 const SizedBox(height: 10),
