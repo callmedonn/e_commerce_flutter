@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:my_app/component/main_header_order.dart';
 // import 'package:my_app/controller/order_controller.dart';
 import 'package:my_app/controller/controllers.dart';
-import 'package:my_app/controller/order_controller.dart';
+// import 'package:my_app/controller/order_controller.dart';
 import 'package:my_app/view/order/components/order_grid.dart';
 import 'package:my_app/view/order/components/order_loading_grid.dart';
 
@@ -38,6 +38,8 @@ class _OrderScreenState extends State<OrderScreen> {
 
   Future payment() async {
     EasyLoading.showSuccess('Success payment! waiting to delivery');
+
+    orderController.deleteManyOrder(email: authController.user.value?.email);
   }
 
   Future refresh() async {
@@ -109,7 +111,7 @@ class _OrderScreenState extends State<OrderScreen> {
                             Color.fromARGB(255, 255, 114, 104)),
                       ),
                       onPressed: () async {
-                        await getImage();
+                        await payment();
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(6.0),

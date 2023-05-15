@@ -5,6 +5,7 @@ import 'package:my_app/controller/cart_controller.dart';
 import 'package:my_app/controller/controllers.dart';
 // import 'package:my_app/service/remote_service/remote_cart.dart';
 import 'package:my_app/view/cart/cart.dart';
+import 'package:my_app/view/history/history.dart';
 // import 'package:my_app/view/cart/cart.dart';
 // import 'package:my_app/view/product/product_screen.dart';
 // import 'package:my_app/view/account/auth/sign_in_screen.dart';

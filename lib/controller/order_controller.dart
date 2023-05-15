@@ -46,9 +46,29 @@ class OrderController extends GetxController {
 
   void gettingOrder() async {
     try {
-      print("objecewfewft");
       var resultGetMe = await RemoteOrderService().getMe();
       orderFree.value = orderFreeFromJson(resultGetMe.body);
+    } catch (e) {
+      debugPrint(e.toString());
+    } finally {}
+  }
+
+  void deleteManyOrder({required email}) async {
+    try {
+      if (email != null) {
+        var result = await RemoteOrderService().deleteManyOrder(
+          email: email,
+        );
+        print(result.statusCode);
+        print('tester');
+        if (result.statusCode == 200) {
+          // orderFree.value = orderFreeFromJson(result.body);
+        } else {
+          EasyLoading.showError('Internal Server Error');
+        }
+      } else {
+        EasyLoading.showError('Please Login');
+      }
     } catch (e) {
       debugPrint(e.toString());
     } finally {}

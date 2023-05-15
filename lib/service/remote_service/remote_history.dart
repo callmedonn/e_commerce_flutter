@@ -3,22 +3,25 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:my_app/const.dart';
 
-class RemoteOrderService {
+class RemoteHistoryService {
   var client = http.Client();
-  var remoteUrl = '$baseUrl/api/orders';
+  var remoteUrl = '$baseUrl/api/historys';
   var remoteUrlCart = '$baseUrl/api/carts';
+  var remoteUrlHistory = '$baseUrl/api/orders';
 
-  Future<dynamic> getOrder({required email}) async {
+  Future<dynamic> getHistory({required email}) async {
+    print(email);
+    print("email");
     var response = await client.get(Uri.parse(
-        '$remoteUrlCart?populate=product.images,product.tags&filters[email][\$contains]=$email'));
+        '$remoteUrlHistory?populate=status_order&filters[email][\$contains]=$email'));
 
     return response;
   }
 
-  Future<dynamic> addOrder({required email}) async {
+  Future<dynamic> addHistory({required email}) async {
     var body = {"email": email};
     var response = await client.post(
-      Uri.parse('$baseUrl/api/order/create'),
+      Uri.parse('$baseUrl/api/history/create'),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode(body),
     );
@@ -27,7 +30,7 @@ class RemoteOrderService {
   }
 
   Future<dynamic> getMe() async {
-    var response = await client.get(Uri.parse('$baseUrl/api/order/getMe'));
+    var response = await client.get(Uri.parse('$baseUrl/api/history/getMe'));
 
     return response;
   }
@@ -46,10 +49,10 @@ class RemoteOrderService {
     return response;
   }
 
-  Future<dynamic> addToOrder({required product, required email}) async {
+  Future<dynamic> addToHistory({required product, required email}) async {
     var body = {"product": product, "email": email};
     var response = await client.post(
-      Uri.parse('$baseUrl/api/order/create'),
+      Uri.parse('$baseUrl/api/history/create'),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode(body),
     );
@@ -57,10 +60,10 @@ class RemoteOrderService {
     return response;
   }
 
-  Future<dynamic> deleteManyOrder({required email}) async {
+  Future<dynamic> deleteManyHistory({required email}) async {
     var body = {"email": email};
     var response = await client.post(
-      Uri.parse('$baseUrl/api/order/deleteMany'),
+      Uri.parse('$baseUrl/api/history/deleteMany'),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode(body),
     );
