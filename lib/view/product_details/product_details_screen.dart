@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_app/controller/controllers.dart';
 import 'package:my_app/view/account/auth/sign_in_screen.dart';
 
 import '../../model/product.dart';
@@ -172,8 +173,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 Color.fromARGB(255, 255, 114, 104)),
           ),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SignInScreen()));
+            cartController.addCart(
+                product: widget.product.id,
+                email: authController.user.value?.email);
           },
           child: const Padding(
             padding: EdgeInsets.all(6.0),

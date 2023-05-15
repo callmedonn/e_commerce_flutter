@@ -97,6 +97,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   title: "Sign In",
                   onClick: () {
                     if (_formKey.currentState!.validate()) {
+                      setState(() {});
                       authController.signIn(
                           email: emailController.text,
                           password: passwordController.text);

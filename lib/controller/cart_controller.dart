@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:my_app/model/cart.dart';
 import 'package:my_app/service/remote_service/remote_cart.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class CartController extends GetxController {
   static CartController instance = Get.put(CartController());
@@ -12,14 +13,34 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
-    getCarts();
+    getCarts(email: null);
     super.onInit();
   }
 
-  getCarts() async {
+  void addCart({required product, required email}) async {
+    try {
+      if (email != null) {
+        var result = await RemoteCartService().addToCart(
+          product: product,
+          email: email,
+        );
+        if (result.statusCode == 200) {
+          EasyLoading.showSuccess('Success add cart!');
+        } else {
+          EasyLoading.showError('Internal Server Error');
+        }
+      } else {
+        EasyLoading.showError('Please Login');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    } finally {}
+  }
+
+  void getCarts({required email}) async {
     try {
       isCartLoading(true);
-      var result = await RemoteCartService().getCart();
+      var result = await RemoteCartService().getCart(email: email);
       // print(cartListFromJson(result.body).length);
       if (result != null) {
         cartList.assignAll(cartListFromJson(result.body));
@@ -34,7 +55,6 @@ class CartController extends GetxController {
   void getCartByName() async {
     try {
       isCartLoading(true);
-      print("object guys");
       var result = await RemoteCartService().getByName(keyword: "keyword");
       if (result != null) {
         cartList.assignAll(cartListFromJson(result.body));

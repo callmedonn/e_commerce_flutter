@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/controller/cart_controller.dart';
 import 'package:my_app/controller/controllers.dart';
-import 'package:my_app/service/remote_service/remote_cart.dart';
+// import 'package:my_app/service/remote_service/remote_cart.dart';
 import 'package:my_app/view/cart/cart.dart';
 // import 'package:my_app/view/cart/cart.dart';
 // import 'package:my_app/view/product/product_screen.dart';
@@ -91,16 +91,18 @@ class MainHeader extends StatelessWidget {
                   MaterialPageRoute(builder: (context) {
                     CartController().onInit();
                     // RemoteCartService().getByName(keyword: "keyword");
+                    cartController.getCarts(
+                        email: authController.user.value?.email);
                     return const CartScreen();
                   }),
                 );
               },
               child: badges.Badge(
                 badgeContent: const Text(
-                  "0",
+                  "",
                   style: TextStyle(color: Colors.white),
                 ),
-                badgeColor: Theme.of(context).primaryColor,
+                badgeColor: Colors.white,
                 child: Container(
                   height: 46,
                   width: 46,
