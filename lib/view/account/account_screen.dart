@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/controller/controllers.dart';
+import 'package:my_app/view/history/history.dart';
 
 import 'auth/sign_in_screen.dart';
 
@@ -54,7 +55,18 @@ class AccountScreen extends StatelessWidget {
           buildAccountCard(title: "Notification", onClick: () {}),
           buildAccountCard(title: "Settings", onClick: () {}),
           buildAccountCard(title: "About Us", onClick: () {}),
-          buildAccountCard(title: "Terms of Service", onClick: () {}),
+          buildAccountCard(
+              title: "History Order",
+              onClick: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    historyController.getHistorys(
+                        email: authController.user.value?.email);
+                    return const HistoryScreen();
+                  }),
+                );
+              }),
           Obx(() => buildAccountCard(
               title: authController.user.value == null ? "Sign In" : "Sign Out",
               onClick: () {
